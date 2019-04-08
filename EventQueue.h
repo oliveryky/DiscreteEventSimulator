@@ -22,31 +22,27 @@ private:
     std::priority_queue<Event*, std::vector<Event*>, Comparator> eventQueue;
 public:
     EventQueue() : currentWaitTime(0) {}
-
+    
     void enque(Event *event) {
         currentWaitTime += event->getProcessingTime();
         eventQueue.push(event);
     }
-
+    
     Event* deque() {
         if(eventQueue.empty()) {
             return nullptr;
         }
-
+        
         Event *ret = eventQueue.top();
         eventQueue.pop();
         currentWaitTime -= ret->getProcessingTime();
         return ret;
     }
-
-    Event* peek() {
-        return eventQueue.top();
-    }
-
+    
     int getCurrentWaitTime() {
         return currentWaitTime;
     }
-
+    
     bool isEmpty() {
         return eventQueue.empty();
     }
