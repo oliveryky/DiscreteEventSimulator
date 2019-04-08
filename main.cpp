@@ -22,16 +22,16 @@ int main(int argc, char* argv[]) {
     double arrivalRate = atof(argv[1]);
     double maxServiceTime = atof(argv[2]);
     int seed = atoi(argv[3]);
-
-//    double arrivalRate = 0;
-//    double maxServiceTime = 0;
-//    int seed = 34534;
-
+    
+    //    double arrivalRate = 0;
+    //    double maxServiceTime = 0;
+    //    int seed = 34534;
+    
     SuperMarket market(arrivalRate, maxServiceTime, seed);
     Bank bank (arrivalRate, maxServiceTime, seed);
-
+    
     market.simulate();
     bank.simulate();
-
+    
     return 0;
 }

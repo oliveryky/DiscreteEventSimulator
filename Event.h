@@ -15,46 +15,43 @@ public:
     Event(int executionTime, int processingTime, EventType eventType) {
         this -> enqueTime = this -> executionTime = executionTime;
         this -> lineNum = this -> registerNum = 0;
-        this->processingTime = processingTime;
+        this -> processingTime = processingTime;
         this -> eventType = eventType;
     }
-
-    void updateExecutionTime(int time) {
+    
+    void updateEvent(EventType eventType, int time) {
+        this -> eventType = eventType;
         this -> executionTime = time;
     }
-
+    
     void updateLine(int lineNum) {
         this -> lineNum = lineNum;
     }
-
+    
     void updateRegister(int registerNum) {
         this -> registerNum = registerNum;
     }
-
-    void udpateEvent(EventType eventType) {
-        this -> eventType = eventType;
-    }
-
+    
     EventType getEventType() {
         return eventType;
     }
-
+    
     int getExecutionTime() {
         return executionTime;
     }
-
+    
     int getLine() {
         return lineNum;
     }
-
+    
     int getProcessingTime() {
         return processingTime;
     }
-
+    
     int getRegister() {
         return registerNum;
     }
-
+    
     int getTimeWaited() {
         return executionTime - enqueTime;
     }
